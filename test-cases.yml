@@ -1,0 +1,77 @@
+---
+- summary: |
+    Успешная регистрация пользователя через электронную почту
+  requirement: |
+    Пользователь должен иметь возможность зарегистрироваться через электронную почту
+  prerequisites: |
+    Пользователь не должен иметь действующего аккаунта с данной электронной почтой
+    Открыта страница https://codebattle.hexlet.io/
+  test-data: |
+    Nickname: test
+    Email: test@google.com
+    Password: test
+  steps:
+    - Нажимаем кнопку "Sign Up"
+    - Вводим Nickname test
+    - Вводим Email test@google.com
+    - Вводим Password
+    - Вводим Password в Password Confirmation
+    - Нажимаем "Submit"
+  expected-result: |
+    Пользователь успешно зарегистрирован. Открывается главная страница https://codebattle.hexlet.io/#lobby
+
+- summary: |
+    Проверка невозможности зарегистрироваться с некорректным email
+  requirement: |
+    Email должен быть корректный
+  prerequisites:
+    Открыта страница https://codebattle.hexlet.io/
+  test-data: |
+    Email: abcd@gmaul.com
+  steps:
+    - Нажимаем кнопку "Sign Up"
+    - Вводим Nickname, например abcd
+    - Вводим Email abcd@gmaul.com
+    - Вводим Password, например 123456
+    - Вводим Password в Password Confirmation
+    - Нажимаем "Submit"
+  expected-result: |
+    Выводится предупреждение о том, что email введен некорректно
+
+    - summary: |
+    Проверка невозможности зарегистрироваться с одним email дважды
+  requirement: |
+    Каждый пользователь может зарегистрироваться только с одним email
+  prerequisites:
+    Открыта страница https://codebattle.hexlet.io/
+  test-data: |
+    Email test@google.com
+  steps:
+    - Нажимаем кнопку "Sign Up"
+    - Вводим Nickname, например test1
+    - Вводим Email test@google.com
+    - Вводим Password, например 123456
+    - Вводим Password в Password Confirmation
+    - Нажимаем "Submit"
+  expected-result: |
+    Выводится предупреждение о том, что email занят
+
+    - summary: |
+    Проверка пароля
+  requirement: |
+    Пароль должен содержать в себе от 6 до 16 символов
+  prerequisites:
+    Открыта страница https://codebattle.hexlet.io/
+  test-data: |
+    Password: qwer
+  steps:
+    - Нажимаем кнопку "Sign Up"
+    - Вводим Nickname, например  test
+    - Вводим Email, например qwer@google.com
+    - Вводим Password qwer
+    - Вводим Password в Password Confirmation
+    - Нажимаем "Submit"
+  expected-result: |
+    Выводится предупреждение о том, что пароль должен содержать от 6 до 16 символов
+
+    
