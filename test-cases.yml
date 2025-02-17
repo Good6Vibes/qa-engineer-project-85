@@ -1,26 +1,5 @@
 ---
 - summary: |
-    Успешная регистрация пользователя через электронную почту
-  requirement: |
-    Пользователь должен иметь возможность зарегистрироваться через электронную почту
-  prerequisites: |
-    Пользователь не должен иметь действующего аккаунта с данной электронной почтой
-    Открыта страница https://codebattle.hexlet.io/
-  test-data: |
-    Nickname: test
-    Email: test@google.com
-    Password: test
-  steps:
-    - Нажимаем кнопку "Sign Up"
-    - Вводим Nickname test
-    - Вводим Email test@google.com
-    - Вводим Password
-    - Вводим Password в Password Confirmation
-    - Нажимаем "Submit"
-  expected-result: |
-    Пользователь успешно зарегистрирован. Открывается главная страница https://codebattle.hexlet.io/#lobby
-
-- summary: |
     Проверка невозможности зарегистрироваться с некорректным email
   requirement: |
     Email должен быть корректный
@@ -57,7 +36,7 @@
     Выводится предупреждение о том, что email занят
 
 - summary: |
-    Проверка пароля
+    Невозможность регистрации при неверном пароле
   requirement: |
     Пароль должен содержать в себе от 6 до 16 символов
   prerequisites:
@@ -180,11 +159,14 @@
   prerequisites: |
     Открыта страница входа - https://codebattle.hexlet.io/session/new?locale=en&next=%2F
   test-data: |
-    Электронная почта = testing@mail.ru Пароль = qwerty10
+    Электронная почта = testing@mail.com
+    Пароль = qwerty10
+    Nickname: test
   steps:
-    - Ввести электронную почту
-    - Ввести пароль
-    - Нажать кнопку Submit
+    - Нажимаем кнопку "Sign In"
+    - Вводим Электронную почту в Email testing@mail.com
+    - Вводим Пароль в Password Confirmation
+    - Нажимаем "Submit"
   expected-result: |
     Осуществлен вход в систему - на страницу https://codebattle.hexlet.io/#lobby
 
